@@ -58,6 +58,24 @@ write their own initial first.
 - 🔄 &nbsp; Moving in the correct direction, especially the anticlockwise family
 - 📏 &nbsp; Letter height against the baseline and x-height
 
+## 🎯 Accuracy
+
+Getting inside the tolerance is a pass; hugging the line is better than a pass. While the
+finger moves, every sample is scored by how far it sits from the line of the stroke being
+traced — full marks up to 3 board units, falling away to nothing at `TOL` — and the meter under
+the board shows the running mean, red at 0% and green at 100%. Samples of a stroke that has to
+be started again are thrown away; samples of finished strokes count.
+
+| Accuracy | What happens |
+|---|---|
+| **95% or more** | "Super neat! Bonus football!" — a **bonus** ⚽ on top of the usual one, so a neat letter is worth two |
+| **75–89%** | "Nice and tidy!" |
+| **under 75%** | "Good. Try to stay on the line." |
+
+The best score per letter is kept in `localStorage` (`jackLettersBest`), and a letter with a best of
+90% or more keeps a small ⭐ on its chip in the alphabet strip. The reset button clears it along with
+everything else.
+
 ## ⚙️ How the checking works
 
 Each stroke is an SVG path in a 100 × 140 box. About twenty checkpoints are sampled along it
@@ -77,11 +95,12 @@ fussy or too forgiving for a particular child.
 | 🥅 [**Jack's Match**](https://github.com/jacks-games/match) | Tell real words from decodable nonsense words, then spell by ear | [▶ play](https://jacks-games.github.io/match/) |
 | ✏️ [**Jack's Letters**](https://github.com/jacks-games/letters) | Finger-trace all 26 lowercase letters in the correct stroke order | [▶ play](https://jacks-games.github.io/letters/)  👈 **this one** |
 | 🔢 [**Jack's Numbers**](https://github.com/jacks-games/numbers) | Count, add and subtract with footballs — to 10, then to 20 | [▶ play](https://jacks-games.github.io/numbers/) |
+| 💯 [**Jack's Big Numbers**](https://github.com/jacks-games/big-numbers) | Tens and ones, adding and taking away all the way to 100 | [▶ play](https://jacks-games.github.io/big-numbers/) |
 | 🍎 [**Jack's Apples**](https://github.com/jacks-games/apples) | Trace 1–20, then fill the missing numbers into the apple grid | [▶ play](https://jacks-games.github.io/apples/) |
 | 👀 [**Jack's Sight Words**](https://github.com/jacks-games/sight-words) | The twenty most common English words on big cards — tap one and hear it read out | [▶ play](https://jacks-games.github.io/sight-words/) |
 | ♟️ [**Jackies Schach**](https://github.com/jacks-games/chess) | Full FIDE rules with a coach that marks the safe squares (German) | [▶ play](https://jacks-games.github.io/chess/) |
 
-All seven on one start page: **[jackbenn.ing](https://jackbenn.ing)**
+All eight on one start page: **[jackbenn.ing](https://jackbenn.ing)**
 
 ## 🛠 Built like this
 
